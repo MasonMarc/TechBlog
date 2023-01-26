@@ -10,7 +10,8 @@ router.get('/', async (req, res) => {
     );
 
     res.render('homepage', {
-      posts
+      posts,
+      loggedIn: req.session.loggedIn
     });
   } catch (err) {
     res.status(500).json(err);
@@ -18,17 +19,22 @@ router.get('/', async (req, res) => {
 });
 
 // get one post
-router.get('/post/:id', async (req, res) => {  
+router.get('/post/:id', async (req, res) => {
+  // If the user is not logged in, redirect the user to the login page
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+  } else {
+    // If the user is logged in, allow them to view the gallery
     try {
       const dbPostData = await Post.findByPk(req.params.id);
       const post = dbPostData.get({ plain: true });
-      res.render('post', {post});
+      res.render('post', { post, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
     }
   }
-);
+});
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {

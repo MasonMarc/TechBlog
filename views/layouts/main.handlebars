@@ -25,7 +25,14 @@
           <ul class="navbar-nav ms-auto">
             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/dashboard">Dashboard</a></li>
             {{!-- ADD DASH PAGE --}}
+            {{#if loggedIn}}
+            <li class="nav-item">
+            <button id="logout-link" class="btn" id="logoutbtn"
+              style="padding-left: 0; padding-bottom: 0.2rem">Logout</button>
+          </li>
+          {{else}}
             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="/login">Login</a></li>
+            {{/if}}
           </ul>
         </div>
       </div>
