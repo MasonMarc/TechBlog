@@ -36,6 +36,21 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+router.get('/dashboard/:id', async (req, res) => {
+  if (!req.session.loggedIn) {
+    res.redirect('/login');
+  } else {
+    try {
+      const dbPostData = await Post.findByPk(req.params.id);
+      const post = dbPostData.get({ plain: true });
+      res.render('post', { post, loggedIn: req.session.loggedIn });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  }
+});
+
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
     res.redirect('/');
@@ -55,10 +70,6 @@ router.get('/signup', (req, res) => {
 });
 
 router.get('/dashboard', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
 
   res.render('dashboard');
 });

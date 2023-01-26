@@ -8,9 +8,9 @@
             <div class="post-preview">
                 <a href="post.html">
                     {{!-- must be post by id --}}
-                    <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                    <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
+                    <h2 class="post-title">Test</h2>
                 </a>
+                    <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
                 <p class="post-meta">
                     Posted by
                     <a href="#!">Start Bootstrap</a>
@@ -22,3 +22,24 @@
         </div>
     </div>
 </div>
+
+<div class="container">
+<form id="post-form" class="card-body">
+    <h1 class="h3 mb-3 fw-normal">Write Post Below:</h1>
+    <div class="form-floating">
+
+      <input type="text" class="form-control" id="title-input" placeholder="Title">
+      <label for="title-input">Title</label>
+
+    </div>
+    <div class="form-floating">
+
+      <input type="text" class="form-control" id="contents-input" placeholder="Contents">
+      <label for="contents-input" class="form-label">Contents</label>
+
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit" id="login-btn">Post</button>
+  </form>
+  </div>
+
+<script src="/js/makepost.js"></script>
