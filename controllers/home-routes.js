@@ -8,6 +8,7 @@ router.get('/', async (req, res) => {
     const posts = dbPostData.map((post) =>
       post.get({ plain: true })
     );
+    
 
     res.render('homepage', {
       posts,
@@ -46,6 +47,7 @@ router.get('/dashboard', async (req, res) => {
       attributes: [
         'title',
         'contents',
+        'id',
       ],
     });
 

@@ -4,7 +4,9 @@
 <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
         {{#if loggedIn}}
+        {{!-- {{#each post as |post|}} --}}
         {{> userpost}}
+        {{!-- {{/each}} --}}
         {{else}}
         <div class="login-alert"><a href="/login">You must login to make an appointment.</a></div>
         {{/if}}
