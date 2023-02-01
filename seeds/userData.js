@@ -6,6 +6,10 @@ const userdata = [
     password: 'winter',
   },
   {
+    username: 'Fall',
+    password: 'spring',
+  },
+  {
     username: 'Jolene',
     password: 'dolly',
   },

@@ -1,15 +1,12 @@
 <h1>Dashboard</h1>
 
 
+{{#if loggedIn}}
 <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
-        {{#if loggedIn}}
-        {{!-- {{#each post as |post|}} --}}
+        {{#each posts as |post|}}
         {{> userpost}}
-        {{!-- {{/each}} --}}
-        {{else}}
-        <div class="login-alert"><a href="/login">You must login to make an appointment.</a></div>
-        {{/if}}
+        {{/each}}
     </div>
 </div>
 
@@ -33,5 +30,8 @@
         <button class="w-100 btn btn-lg btn-primary" type="submit" id="login-btn">Post</button>
     </form>
 </div>
+{{else}}
+<div class="login-alert"><a href="/login">You must login to view the dashboard and make a post</a></div>
+{{/if}}
 
 <script src="/js/makepost.js"></script>
