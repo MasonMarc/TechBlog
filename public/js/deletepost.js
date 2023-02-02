@@ -1,9 +1,6 @@
 const signupFormHandler = async function(event) {
   event.preventDefault();
 
-  const titleEl = document.querySelector('#title-input');
-  const contentsEl = document.querySelector('#contents-input');
-
   const response = await fetch('/api/posts', {
     method: 'POST',
     body: JSON.stringify({
@@ -21,7 +18,6 @@ const signupFormHandler = async function(event) {
 };
 
 document
-  .querySelector('#post-form')
   .addEventListener('submit', signupFormHandler);
 
 // make delete and update to posts only from dashboard

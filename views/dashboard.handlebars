@@ -1,8 +1,5 @@
-<h1>Dashboard</h1>
-
-
 {{#if loggedIn}}
-<div class="container px-4 px-lg-5">
+<div class="container px-4 px-lg-5 p-5">
     <div class="row gx-4 gx-lg-5 justify-content-center">
         {{#each posts as |post|}}
         {{> userpost}}
@@ -11,9 +8,9 @@
 </div>
 
 
-
+<button onclick="showPostForm()" class="btn btn-primary position-absolute bottom-80 end-50">Make a Post</button>
 <div class="container">
-    <form id="post-form" class="card-body">
+    <form id="post-form" class="card-body" style="display: none;">
         <h1 class="h3 mb-3 fw-normal">Write Post Below:</h1>
         <div class="form-floating">
 
@@ -33,5 +30,11 @@
 {{else}}
 <div class="login-alert"><a href="/login">You must login to view the dashboard and make a post</a></div>
 {{/if}}
+
+<script type="text/javascript">
+    function showPostForm() {
+        document.getElementById('post-form').style.display = 'block';
+    }
+</script>
 
 <script src="/js/makepost.js"></script>
